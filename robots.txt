@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://projectdelphai.github.com/sitemap.xml 
