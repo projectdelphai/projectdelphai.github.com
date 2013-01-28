@@ -21,7 +21,7 @@ h1{
 	font-size: 1.8em;
 }
 h2{
-	font-size: 1.5em;
+	font-size: 1.9em;
 }
 h3{
 	font-size: 1.3em;
@@ -47,3 +47,20 @@ a{
 		width: 100%;
 	}
 }
+
+article .meta { 
+  display:none;
+}
+
+article { 
+  margin-left: -20%;
+  border-bottom-style: none;
+  border-style:none;
+  border:none;
+
+}
+
+p {
+  font-size: 1.2em;
+}
+
