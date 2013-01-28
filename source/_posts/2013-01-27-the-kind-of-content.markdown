@@ -11,6 +11,8 @@ categories:
 
 For a while, I've been thinking of making a website/blog. It goes all the way back to when I was a wee lad. Having a blog was an interest of mine for various reasons. First and foremost, it had been about money. "Hey! An easy way to make money," I thought. Then I looked up how to make a blog and all the intricacies behind  one. I read. . . and read . . . and read. I soon realized that writing for money was a stupid idea.
 
+<! -- more -->
+
 A couple months later, I wanted a website again. This time, it was because I had started getting interested in computers. I decided to start with the basics-HTML and CSS. So I coded what I thought was some pretty good websites and looked into publishing them. And being a lowly of kid of ~14, had nowhere to put it. I had to either spend my life savings every month, or use some free hosting site like WordPress. However, I liked my hand-coded website and didn't want to give it up for some Wordpress theme. I almost thought of hosting it myself, and then realized a crucial fact. **I had no content.**
 
 All the articles I had ever read on blogging  had a common rule: write good content or you won't get noticed; without good content, a fabulous looking site is useless. So I was out of luck. I gave up ever getting a website and I turned to other fields. Fast forward in my life and I've learned a couple things. 
