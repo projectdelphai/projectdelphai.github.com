@@ -1,0 +1,197 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Aliases - projectdelphai</title>
+	<meta name="author" content="Reuben Castelino">
+
+	
+	<meta name="description" content="So right now I&#8217;m not sure whether to post whenever I think of an alias or bashrc function or to collect them all here. For now, I&#8217;ll just &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="projectdelphai" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">projectdelphai</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:projectdelphai.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		
+		<a class="github" href="https://github.com/projectdelphai" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:projectdelphai.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Aliases</h2>
+	<div class="entry-content"><p>So right now I&#8217;m not sure whether to post whenever I think of an alias or bashrc function or to collect them all here. For now, I&#8217;ll just add to this post as I think of them. While not technically aliases, I&#8217;ll mostly include functions that I&#8217;ve placed in bashrc because to me, they serve the same purpose: they fulfill a certain requirement with less typing.</p>
+
+<!-- more -->
+
+
+<p><strong>Backup File</strong></p>
+
+<p>Renames file argument to <filename>.tmp to preserve a copy then renames file argument to <filename>.bk as backup. Finally it renames temp file to original filename as experiment file</p>
+
+<pre><code>function bk() {
+    cp $1 $1.tmp
+    mv $1 $1.bk
+    mv $1.tmp $1
+}
+</code></pre>
+
+<p><strong>Deploy Octopress Site Changes</strong></p>
+
+<p>This one is used to deploy any changes to my site. After creating a post or changing the html/css, I just have to type in &#8220;deploy &#8216;&lt;git commit message&#8217;&#8221; and itwill publish the changes. It first generates the site and then deploys it. The next half adds all changed files, adds a commit message, and pushes to my github. The hardest part is just remembering to add that commit argument.</p>
+
+<pre><code>function deploy() {
+    rake generate;
+    rake deploy;
+    git add .;
+    git commit $1;
+    git push origin source;
+  }
+</code></pre>
+
+<p><strong>Aliases</strong></p>
+
+<p>View any usb drives that were plugged in. The later they appear, the later they were plugged in or registered.</p>
+
+<pre><code>alias vdev='dmesg | grep -o "sd[a-z]" | uniq | tail'
+</code></pre>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-28T23:05:00-08:00" pubdate data-updated="true">Jan 28<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+</div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013		 
+
+    Reuben Castelino
+
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'projectdelphai';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://projectdelphai.github.com/blog/2013/01/28/aliases/';
+        var disqus_url = 'http://projectdelphai.github.com/blog/2013/01/28/aliases/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>

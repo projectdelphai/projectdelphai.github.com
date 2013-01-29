@@ -4,7 +4,7 @@
   <title><![CDATA[projectdelphai]]></title>
   <link href="http://projectdelphai.github.com/atom.xml" rel="self"/>
   <link href="http://projectdelphai.github.com/"/>
-  <updated>2013-01-27T21:29:53-08:00</updated>
+  <updated>2013-01-28T23:25:42-08:00</updated>
   <id>http://projectdelphai.github.com/</id>
   <author>
     <name><![CDATA[Reuben Castelino]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Aliases]]></title>
+    <link href="http://projectdelphai.github.com/blog/2013/01/28/aliases/"/>
+    <updated>2013-01-28T23:05:00-08:00</updated>
+    <id>http://projectdelphai.github.com/blog/2013/01/28/aliases</id>
+    <content type="html"><![CDATA[<p>So right now I&#8217;m not sure whether to post whenever I think of an alias or bashrc function or to collect them all here. For now, I&#8217;ll just add to this post as I think of them. While not technically aliases, I&#8217;ll mostly include functions that I&#8217;ve placed in bashrc because to me, they serve the same purpose: they fulfill a certain requirement with less typing.</p>
+
+<!-- more -->
+
+
+<p><strong>Backup File</strong></p>
+
+<p>Renames file argument to <filename>.tmp to preserve a copy then renames file argument to <filename>.bk as backup. Finally it renames temp file to original filename as experiment file</p>
+
+<pre><code>function bk() {
+    cp $1 $1.tmp
+    mv $1 $1.bk
+    mv $1.tmp $1
+}
+</code></pre>
+
+<p><strong>Deploy Octopress Site Changes</strong></p>
+
+<p>This one is used to deploy any changes to my site. After creating a post or changing the html/css, I just have to type in &#8220;deploy &#8216;&lt;git commit message&#8217;&#8221; and itwill publish the changes. It first generates the site and then deploys it. The next half adds all changed files, adds a commit message, and pushes to my github. The hardest part is just remembering to add that commit argument.</p>
+
+<pre><code>function deploy() {
+    rake generate;
+    rake deploy;
+    git add .;
+    git commit $1;
+    git push origin source;
+  }
+</code></pre>
+
+<p><strong>Aliases</strong></p>
+
+<p>View any usb drives that were plugged in. The later they appear, the later they were plugged in or registered.</p>
+
+<pre><code>alias vdev='dmesg | grep -o "sd[a-z]" | uniq | tail'
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Test]]></title>
