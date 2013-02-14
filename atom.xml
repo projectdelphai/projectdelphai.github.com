@@ -4,7 +4,7 @@
   <title><![CDATA[projectdelphai]]></title>
   <link href="http://projectdelphai.github.com/atom.xml" rel="self"/>
   <link href="http://projectdelphai.github.com/"/>
-  <updated>2013-01-28T23:26:52-08:00</updated>
+  <updated>2013-02-13T23:48:20-08:00</updated>
   <id>http://projectdelphai.github.com/</id>
   <author>
     <name><![CDATA[Reuben Castelino]]></name>
@@ -42,7 +42,7 @@
     rake generate;
     rake deploy;
     git add .;
-    git commit $1;
+    git commit -m $1;
     git push origin source;
   }
 </code></pre>
