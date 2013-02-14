@@ -29,7 +29,7 @@ This one is used to deploy any changes to my site. After creating a post or chan
 	    rake generate;
 	    rake deploy;
 	    git add .;
-	    git commit $1;
+	    git commit -m $1;
 	    git push origin source;
 	  }
 
