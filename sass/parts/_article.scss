@@ -10,8 +10,8 @@ article{
 		padding: 15px 0;
 	}
 	h2.title{
-		font-size: 1.8em;
-		font-weight: 300;
+		font-size: 2em;
+		font-weight: 30;
 		line-height: 35px;
 		margin-bottom: 20px;
 		a{
@@ -19,7 +19,8 @@ article{
 		}
 	}
 	.entry-content{
-		line-height: 2;
+		line-height: 2.5em;
+		font-size: 18px;
 		text-align: justify;
 		a{
 			&:hover{
@@ -31,13 +32,6 @@ article{
 			margin-top: 16px;
 			padding-left: 30px;
 			position: relative;
-			&:before{
-				content: "\f061";
-				font: 1.3em $font-icon;
-				line-height: 1.6em;
-				position: absolute;
-				left: 0;
-			}
 		}
 		p, blockquote, ul, ol, dl, table, iframe, h1, h2, h3, h4, h5, h6, .video-container{
 			margin-top: 10px;
@@ -112,7 +106,7 @@ article{
 			&:before{
 				content: "\f040";
 				color: $color-gray03;
-				font: 1.3em $font-icon;
+				font: 1.3em ;
 				line-height: 1.6em;
 				position: absolute;
 				left: 0;

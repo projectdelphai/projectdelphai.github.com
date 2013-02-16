@@ -54,7 +54,7 @@
 				@include inline-block;
 				&:before{
 					color: $color-gray03;
-					font: 1.3em $font-icon;
+					font: 1.3em ;
 					padding-right: 10px;
 				}
 			}
