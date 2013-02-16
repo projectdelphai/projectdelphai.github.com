@@ -1,0 +1,193 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Creating a Feed for Medium - projectdelphai</title>
+	<meta name="author" content="Reuben Castelino">
+
+	
+	<meta name="description" content="More and more often, I&#8217;ve found myself reading posts from Medium. It is a relatively new site (still in closed beta for writers) that was &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="projectdelphai" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">projectdelphai</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:projectdelphai.github.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		
+		<a class="github" href="https://github.com/projectdelphai" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:projectdelphai.github.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Creating a Feed for Medium</h2>
+	<div class="entry-content"><p>More and more often, I&#8217;ve found myself reading posts from <a href="http://www.medium.com">Medium</a>. It is a relatively new site (still in closed beta for writers) that was created to be a &#8220;place for ideas&#8221;. While at first, it may seem a lot like sites such as reddit or Hacker News, it&#8217;s a lot different as well. It&#8217;s different in that it feels like a magazine. I enjoy reading the articles on Medium and it looks beautiful. From what I&#8217;ve heard, writing in Medium is great as well, to the point that one writer said that he wrote emails in it just because of how much he enjoyed the UI. It also deviates from just technology articles. While it has those, it also contains articles that just express ideas or thoughts that have occurred to people. No matter the content, however, the writing is how all posts should be written: easy-to-read, thought out, and creative.</p>
+
+<!-- more -->
+
+
+<p>So after realizing how much I enjoyed reading articles from Medium, I looked for the rss feed. I hate going to sites every day to check on new posts and so Google Reader and newsbeuter have become essential. And I found what I believe is one of Medium&#8217;s largest flaws: it doesn&#8217;t have one collective feed. Instead it has multiple feeds for its collections (think tags). So I was faced with the dilemma of what to do; I wasn&#8217;t willing to hear about great article through 3rd parties, yet I would not remember and refused to check every day. I turned to <a href="http://www.feed43.com">Feed43</a>.</p>
+
+<p>I&#8217;m sure there are better options out there, but Feed43 has helped me when I need quick solutions and I haven&#8217;t invested the time needed to find a better one. Here&#8217;s a guide written as to how I created a basic feed so that others can learn how and so that I can remember how when I inevitably need to make more feeds.</p>
+
+<p>NOTE: Feed43 does have a limit to the number of queries it can make along with other limitations. However, until further notice, it is the best and easiest service for me.</p>
+
+<p>I like Feed43, because I can create the feed myself based on a site&#8217;s HTML source rather than relying on an automatic service. After signing in, I created a new feed and agreed to the terms of service. Then, I filled in which site I wanted to create a feed from and viewed the html source as seen below. <br></p>
+
+<p><img src="/assets/images/Medium_Feed/Step_1.jpg" alt="Step 1" /></p>
+
+<p>I&#8217;ve always used % for the global search pattern to the point that I don&#8217;t even know if something else is accepted. There are probably more options and limitations, but for my purposes, % has always worked. The key to the Item Search Pattern is to find the essential html code that corresponds to the posts on the main page of your site. Here is where you will need to know some basic HTML. I would suggest going out and learned at least some basics before you try this. I believe that you could puzzle it out with some logic, but you can get pretty lost finding out where you need to be. So I knew the first post title was called &#8220;I&#8217;m a Mac. You&#8217;re a PC&#8230;&#8221;. So I scrolled down until I found that part in the extracted source. By comparing the code between post titles, I noticed that the post title would appear shortly after</p>
+
+<pre><code>&lt;h3 class="post-item-title"&gt;
+</code></pre>
+
+<p>After that, I isolated the article link to the href after the h3 header, the title to the title tag, and the brief summary to the paragraph tag shortly after that. From there I copied that bit of code into the Items Search Pattern box replacing the parts where the important information was with %. Any bits that were not essential to identifying where in the code I was, I replaced with a *. This means that there&#8217;s a lot of code there, but feed43 doesn&#8217;t have to pay attention to that and can skip it until the next important part. This is what the final product looked like.</p>
+
+<p><img src="/assets/images/Medium_Feed/Step_2.jpg" alt="Step 1" /></p>
+
+<p>From there, it was a simple matter of just filling in the fields, with the necessary information and % numbers. The hardest part is definitely Step 2. Here you you can see how I finished up. I previewed the rss to make sure it worked out fine, renamed the feed, and then added it to google reader.</p>
+
+<p><img src="/assets/images/Medium_Feed/Step_3.jpg" alt="Step 1" /></p>
+
+<p><img src="/assets/images/Medium_Feed/Step_4.jpg" alt="Step 1" /></p>
+
+<p>From here, I&#8217;ve been thinking of where to go. While this method works, it isn&#8217;t very helpful to deploy. I can&#8217;t exactly share the feed, because I doubt that many people can use the same feed without it shutting down. Another option I&#8217;ve been thinking of is to use github or heroku to create the xml file and spew the items back whenever google reader queries for new information. I know ruby has a way of creating rss feeds so it might be possible with heroku. Sooner or later, I&#8217;ll see into creating a website that can store multiple, custom rss links. It may work, it may not.</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-15T15:47:00-08:00" pubdate data-updated="true">Feb 15<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+</div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013		 
+
+    Reuben Castelino
+
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'projectdelphai';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://projectdelphai.github.com/blog/2013/02/15/creating-a-feed-for-medium/';
+        var disqus_url = 'http://projectdelphai.github.com/blog/2013/02/15/creating-a-feed-for-medium/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+</body>
+</html>
