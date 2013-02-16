@@ -2,19 +2,19 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://projectdelphai.github.com/blog/2013/01/26/test/</loc>
-        <lastmod>2013-01-27T18:41:37-08:00</lastmod>
+        <lastmod>2013-02-15T18:01:29-08:00</lastmod>
     </url>
     <url>
         <loc>http://projectdelphai.github.com/blog/2013/01/28/aliases/</loc>
-        <lastmod>2013-02-15T16:11:35-08:00</lastmod>
+        <lastmod>2013-02-15T18:01:29-08:00</lastmod>
     </url>
     <url>
         <loc>http://projectdelphai.github.com/blog/2013/02/15/creating-a-feed-for-medium/</loc>
-        <lastmod>2013-02-15T17:02:07-08:00</lastmod>
+        <lastmod>2013-02-15T19:07:38-08:00</lastmod>
     </url>
     <url>
         <loc>http://projectdelphai.github.com/blog/archives/</loc>
-        <lastmod>2013-02-15T17:02:07-08:00</lastmod>
+        <lastmod>2013-02-15T19:07:38-08:00</lastmod>
     </url>
     <url>
         <loc>http://projectdelphai.github.com/robots.txt</loc>
@@ -22,6 +22,6 @@
     </url>
     <url>
         <loc>http://projectdelphai.github.com/</loc>
-        <lastmod>2013-02-15T17:02:07-08:00</lastmod>
+        <lastmod>2013-02-15T19:07:38-08:00</lastmod>
     </url>
 </urlset>
