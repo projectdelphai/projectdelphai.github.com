@@ -6,15 +6,21 @@
     </url>
     <url>
         <loc>http://projectdelphai.github.com/blog/2013/01/28/aliases/</loc>
-        <lastmod>2013-02-15T18:01:29-08:00</lastmod>
+        <lastmod>2013-03-15T14:48:57-07:00</lastmod>
     </url>
     <url>
         <loc>http://projectdelphai.github.com/blog/2013/02/15/creating-a-feed-for-medium/</loc>
         <lastmod>2013-02-15T19:07:38-08:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://projectdelphai.github.com/blog/2013/03/15/replacing-google-reader-with-tt-rss-on-heroku/
+        </loc>
+        <lastmod>2013-03-15T16:10:03-07:00</lastmod>
+    </url>
+    <url>
         <loc>http://projectdelphai.github.com/blog/archives/</loc>
-        <lastmod>2013-02-15T19:07:38-08:00</lastmod>
+        <lastmod>2013-03-15T16:10:03-07:00</lastmod>
     </url>
     <url>
         <loc>http://projectdelphai.github.com/robots.txt</loc>
@@ -22,6 +28,6 @@
     </url>
     <url>
         <loc>http://projectdelphai.github.com/</loc>
-        <lastmod>2013-02-15T19:07:38-08:00</lastmod>
+        <lastmod>2013-03-15T16:10:03-07:00</lastmod>
     </url>
 </urlset>
