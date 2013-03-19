@@ -4,7 +4,7 @@
   <title><![CDATA[projectdelphai]]></title>
   <link href="http://projectdelphai.github.com/atom.xml" rel="self"/>
   <link href="http://projectdelphai.github.com/"/>
-  <updated>2013-03-15T16:13:34-07:00</updated>
+  <updated>2013-03-18T20:18:19-07:00</updated>
   <id>http://projectdelphai.github.com/</id>
   <author>
     <name><![CDATA[Reuben Castelino]]></name>
@@ -22,6 +22,10 @@
 
 <!-- more -->
 
+
+<h2>Update</h2>
+
+<p>I did create recently create a shell script that can be found <a href="https://github.com/projectdelphai/ttrss-on-heroku">here</a> which will make it a lot easier for a person to quickly set up a ttrs-on-heroku server. If you&#8217;re just here to get a server, use that. If you want to learn more about the process and the background information, read ahead. I would at least skim ahead so that you have a basic understanding of what&#8217;s happening</p>
 
 <p>There were three routes I could have gone. I could have dropped newsbeuter and gone to another client, but I didn&#8217;t want to do that, because, frankly, newsbeuter is the mutt of rss readers. I also could have just worked with an online-only service, but again, I love newsbeuter. I see no need to drop it, because of Google&#8217;s choices. The last and what seemed to be the most viable was to use newsbeuter by itself with no online features. However, if I&#8217;m bored and at another computer (Windows, Linux, or Mac), I want to be able to read my feeds.</p>
 
@@ -58,7 +62,7 @@ heroku create \&lt;username\&gt;-ttrss
 
 <p>The next thing is to move to the <a href="https://postgres.heroku.com/">postgres heroku page</a> to view your database information. You can login using your Heroku credentials. From there switch to the databases page and click on the database that matches with your site. It will have the format of &lt;username>-ttrss::&lt;databasenickname>. On your database page, record the Host name, the Database name, the User, and the Password (You&#8217;ll need to click show).</p>
 
-<p>Move back to your application folder, and create a copy of the config.php-dist file and name it config.php. Open up the config.php file in your editor and change the values of DB_HOST to your Host name, DB_USER to your User name, DB_PASS to your Password, and uncomment the DB_PORT section and keep it as 5432. You can keep the DB_TYPE as pgsql since your using postgres instead of mysql. The last thing you&#8217;ll need to change here is the SELF_URL_PATH to</p>
+<p>Move back to your application folder, and create a copy of the config.php-dist file and name it config.php. Open up the config.php file in your editor and change the values of DB_HOST to your Host name, DB_USER to your User name, DB_PASS to your Password, and uncomment the DB_PORT section and keep it as 5432. You can keep the DB_TYPE as pgsql since you&#8217;re using postgres instead of mysql. The last thing you&#8217;ll need to change here is the SELF_URL_PATH to</p>
 
 <pre><code>http://\&lt;username\&gt;-ttrss.heroku.com/
 </code></pre>
@@ -73,7 +77,16 @@ heroku create \&lt;username\&gt;-ttrss
 <pre><code>\i ttrss_schema_pgsql.sql
 </code></pre>
 
-<p>You will see a lot of text scroll by and once it&#8217;s finished you can exit with \q. Now you could upload the data and you should be done. If you do it however, you&#8217;ll find out that the application doesn&#8217;t run. A quick look through</p>
+<p>You will see a lot of text scroll by and once it&#8217;s finished you can exit with \q.</p>
+
+<h2>UPDATE</h2>
+
+<p>I have actually changed my mind and fine that this is definitely without a doubt the easier way. Do this. Find your database nickname (something like pink or amber or some random noun) and then:</p>
+
+<pre><code>heroku pg:psql \&lt;databasenickname\&gt; &lt; schema/ttrss_schema_pgsql.sql
+</code></pre>
+
+<p>Now you could upload the data and you should be done. If you do it however, you&#8217;ll find out that the application doesn&#8217;t run. A quick look through</p>
 
 <pre><code>heroku logs
 </code></pre>
@@ -109,7 +122,12 @@ git push heroku master
 <pre><code>heroku run bash
 </code></pre>
 
-<p>where you basically have a sort of ssh feature into your data in your application. Using this you can run the update.php file every x minutes. Basically I created a bash script that says</p>
+<p>where you basically have a sort of ssh feature into your data in your application. Using this you can run the update.php file every x minutes. First to enable some shared libraries, run</p>
+
+<pre><code>heroku config:add LD_LIBRARY_PATH=/app/php/ext:/app/apache/lib 
+</code></pre>
+
+<p>Then I created a bash script that says</p>
 
 <pre><code>#! /bin/sh
 cd /home/&lt;user&gt;/path/to/ttrss/folder
@@ -136,6 +154,24 @@ heroku run './php/bin/php -c www/php.ini ./www/update.php -feeds'
 <p>From here I can access ttrss from any browser, from my computer (using newsbeuter which I won&#8217;t document here; use the git version if you&#8217;re going to use it), and from a phone (I believe there&#8217;s an android app, not sure though).</p>
 
 <p>I realize that the faulty part of this method is Heroku as at any point, Heroku could shut down as well, but that&#8217;s not the point. There are multiple other free hosting sites that I could have used. I looked at appfog.com for instance and <a href="http://www.quora.com/Is-there-anything-like-Heroku-I-can-use-for-a-PHP-site">this page</a> has a ton of other resources as well. It may even be possible to get it running on github pages. But ttrss is built so that as long as I have a place to host it, I can easily migrate the installation and that&#8217;s what makes it great.</p>
+
+<h2>Thanks</h2>
+
+<p>I used a lot of articles/web sites without which, this would not have been possible. Though they may not realize that they helped me, I would like to acknowledge as many of them as I can remember. In no particular order (until I figure out footnotes and become less lazy):</p>
+
+<ol>
+<li>Nathan Willis for his great <a href="https://www.linux.com/learn/tutorials/322446-weekend-project-replacing-google-reader-with-tiny-tiny-rss">starting article</a> that led me through much of the basics.</li>
+<li>Le Seul (?) for some more specific <a href="http://brasserie-seul.com/?Recipes&amp;nr=50">choices in preferences</a> especially #6</li>
+<li>who_me for his [post](http://tt-rss.org/forum/viewtopic.php?f=16&amp;t=1360] on the tt-rss forum which motivated me to create the shell script.</li>
+<li>Heroku for their great hosting and informative wiki/documentation.</li>
+<li>Tiny Tiny RSS for a great open-source software</li>
+<li>manish_s and Dan McClain for their posts <a href="http://stackoverflow.com/questions/10691766/how-do-i-connect-to-my-heroku-shared-database-for-postgresql">here</a> and <a href="http://stackoverflow.com/questions/11797217/how-do-i-update-psql">here</a> which helped with setting up the database.</li>
+<li>Yandod for explaining <a href="http://en.blog.candycane.jp/2012/04/11/running-php-on-heroku-with-mbstring/">how to set up mbstring on heroku</a> without which would probably have halted the development of this project.</li>
+<li>friism for his <a href="http://stackoverflow.com/questions/14389140/trying-to-run-php-file-using-heroku-run-and-i-get-bash-permission-denied">post</a> on how to enable some shared libraries for the update script.</li>
+<li>For <a href="http://stackoverflow.com/questions/6289506/can-i-run-bash-scripts-on-my-heroku-account">this post</a> which led me to <a href="https://news.ycombinator.com/item?id=2602728">this post</a> which really helped understand how to set up the update script.</li>
+<li>At last, but not least for <a href="https://github.com/mozz100">Richard Morrison</a> who <a href="https://github.com/projectdelphai/ttrss-on-heroku/pull/1">helped me</a> remember about the shared libraries for the update script (and why its a good idea to record everything) and for finding bugs in my script which I hadn&#8217;t thought about.</li>
+</ol>
+
 ]]></content>
   </entry>
   
