@@ -14,6 +14,7 @@ Update
 ---------
 I did create recently create a shell script that can be found [here](https://github.com/projectdelphai/ttrss-on-heroku) which will make it a lot easier for a person to quickly set up a ttrs-on-heroku server. If you're just here to get a server, use that. If you want to learn more about the process and the background information, read ahead. I would at least skim ahead so that you have a basic understanding of what's happening
 
+<hr >
 
 There were three routes I could have gone. I could have dropped newsbeuter and gone to another client, but I didn't want to do that, because, frankly, newsbeuter is the mutt of rss readers. I also could have just worked with an online-only service, but again, I love newsbeuter. I see no need to drop it, because of Google's choices. The last and what seemed to be the most viable was to use newsbeuter by itself with no online features. However, if I'm bored and at another computer (Windows, Linux, or Mac), I want to be able to read my feeds. 
 
@@ -65,6 +66,8 @@ UPDATE
 I have actually changed my mind and fine that this is definitely without a doubt the easier way. Do this. Find your database nickname (something like pink or amber or some random noun) and then:
 
 	heroku pg:psql \<databasenickname\> < schema/ttrss_schema_pgsql.sql
+
+<hr >
 
 Now you could upload the data and you should be done. If you do it however, you'll find out that the application doesn't run. A quick look through 
 
