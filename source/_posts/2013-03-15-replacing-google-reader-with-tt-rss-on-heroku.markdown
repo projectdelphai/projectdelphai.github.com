@@ -67,6 +67,8 @@ I have actually changed my mind and fine that this is definitely without a doubt
 
 	heroku pg:psql \<databasenickname\> < schema/ttrss_schema_pgsql.sql
 
+This makes it much easier.
+
 <hr >
 
 Now you could upload the data and you should be done. If you do it however, you'll find out that the application doesn't run. A quick look through 
@@ -133,7 +135,7 @@ I used a lot of articles/web sites without which, this would not have been possi
 
 1. Nathan Willis for his great [starting article](https://www.linux.com/learn/tutorials/322446-weekend-project-replacing-google-reader-with-tiny-tiny-rss) that led me through much of the basics.
 2. Le Seul (?) for some more specific [choices in preferences](http://brasserie-seul.com/?Recipes&nr=50) especially #6
-3. who_me for his [post](http://tt-rss.org/forum/viewtopic.php?f=16&t=1360] on the tt-rss forum which motivated me to create the shell script.
+3. who_me for his [post](http://tt-rss.org/forum/viewtopic.php?f=16&t=1360) on the tt-rss forum which motivated me to create the shell script.
 4. Heroku for their great hosting and informative wiki/documentation.
 5. Tiny Tiny RSS for a great open-source software
 6. manish_s and Dan McClain for their posts [here](http://stackoverflow.com/questions/10691766/how-do-i-connect-to-my-heroku-shared-database-for-postgresql) and [here](http://stackoverflow.com/questions/11797217/how-do-i-update-psql) which helped with setting up the database.
