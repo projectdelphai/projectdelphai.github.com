@@ -8,7 +8,7 @@ categories:
 
 This is my follow-up article to [Replacing Google Reader with TT-RSS on Heroku](http://projectdelphai.github.com/blog/2013/03/15/replacing-google-reader-with-tt-rss-on-heroku/). That article was just my quick notes on how I had set up tt-rss on Heroku as a quick transition from Google Reader. As with any project, nothing is ever perfect the first time and there were a lot of updates that I did until I was comfortable with the setup. Besides some small changes and bug fixes, the biggest two events would be the creation of a installation script and the addition of a self-updater. If I come across anything else, I'll either post it at the end of this article or write a Part 3. I'm still debating.
 
-<!-- Read more -->
+<!-- more -->
 
 Cost
 --------
