@@ -10,6 +10,7 @@ As many probably know, Google Reader is slated to be [shut down](http://googlere
 
 <!-- more -->
 
+There is now a [part 2]( ).
 Update
 ---------
 I did create recently create a shell script that can be found [here](https://github.com/projectdelphai/ttrss-on-heroku) which will make it a lot easier for a person to quickly set up a ttrs-on-heroku server. If you're just here to get a server, use that. If you want to learn more about the process and the background information, read ahead. I would at least skim ahead so that you have a basic understanding of what's happening
@@ -61,7 +62,7 @@ Your password will be your Database password. Then import the schema file with
 
 You will see a lot of text scroll by and once it's finished you can exit with \q. 
 
-UPDATE
+Update
 ---------
 I have actually changed my mind and fine that this is definitely without a doubt the easier way. Do this. Find your database nickname (something like pink or amber or some random noun) and then:
 
@@ -134,7 +135,7 @@ Thanks
 I used a lot of articles/web sites without which, this would not have been possible. Though they may not realize that they helped me, I would like to acknowledge as many of them as I can remember. In no particular order (until I figure out footnotes and become less lazy): 
 
 1. Nathan Willis for his great [starting article](https://www.linux.com/learn/tutorials/322446-weekend-project-replacing-google-reader-with-tiny-tiny-rss) that led me through much of the basics.
-2. Le Seul (?) for some more specific [choices in preferences](http://brasserie-seul.com/?Recipes&nr=50) especially #6
+2. Jan for some more specific [choices in preferences](http://brasserie-seul.com/?Recipes&nr=50) especially #6
 3. who_me for his [post](http://tt-rss.org/forum/viewtopic.php?f=16&t=1360) on the tt-rss forum which motivated me to create the shell script.
 4. Heroku for their great hosting and informative wiki/documentation.
 5. Tiny Tiny RSS for a great open-source software
