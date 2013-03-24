@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[projectdelphai]]></title>
+  <title><![CDATA[Reuben Castelino]]></title>
   <link href="http://projectdelphai.github.com/atom.xml" rel="self"/>
   <link href="http://projectdelphai.github.com/"/>
-  <updated>2013-03-23T18:32:30-07:00</updated>
+  <updated>2013-03-24T00:14:50-07:00</updated>
   <id>http://projectdelphai.github.com/</id>
   <author>
     <name><![CDATA[Reuben Castelino]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[TT-RSS on Heroku Part 2]]></title>
-    <link href="http://projectdelphai.github.com/blog/2013/03/23/tt-rss-on-heroku-part-2/"/>
+    <link href="http://projectdelphai.github.com/tt-rss-on-heroku-part-2/"/>
     <updated>2013-03-23T17:08:00-07:00</updated>
-    <id>http://projectdelphai.github.com/blog/2013/03/23/tt-rss-on-heroku-part-2</id>
+    <id>http://projectdelphai.github.com/tt-rss-on-heroku-part-2</id>
     <content type="html"><![CDATA[<p>This is my follow-up article to <a href="http://projectdelphai.github.com/blog/2013/03/15/replacing-google-reader-with-tt-rss-on-heroku/">Replacing Google Reader with TT-RSS on Heroku</a>. That article was just my quick notes on how I had set up tt-rss on Heroku as a quick transition from Google Reader. As with any project, nothing is ever perfect the first time and there were a lot of updates that I did until I was comfortable with the setup. Besides some small changes and bug fixes, the biggest two events would be the creation of a installation script and the addition of a self-updater. If I come across anything else, I&#8217;ll either post it at the end of this article or write a Part 3. I&#8217;m still debating.</p>
 
 <!-- more -->
@@ -119,9 +119,9 @@ git push \&lt;appname\&gt;-updater master
   
   <entry>
     <title type="html"><![CDATA[Replacing Google Reader with TT-RSS on Heroku]]></title>
-    <link href="http://projectdelphai.github.com/blog/2013/03/15/replacing-google-reader-with-tt-rss-on-heroku/"/>
+    <link href="http://projectdelphai.github.com/replacing-google-reader-with-tt-rss-on-heroku/"/>
     <updated>2013-03-15T14:25:00-07:00</updated>
-    <id>http://projectdelphai.github.com/blog/2013/03/15/replacing-google-reader-with-tt-rss-on-heroku</id>
+    <id>http://projectdelphai.github.com/replacing-google-reader-with-tt-rss-on-heroku</id>
     <content type="html"><![CDATA[<p>As many probably know, Google Reader is slated to be <a href="http://googlereader.blogspot.com/2013/03/powering-down-google-reader.html">shut down</a> on July 1, 2013. I use Google Reader all the time and this came as a huge shock to me. My first instinct was to switch to something else such as <a href="http://www.feedly.com/">Feedly</a>. The problem is that I also use <a href="http://www.newsbeuter.org/">newsbeuter</a> as a desktop client which syncs with Google Reader. It only syncs with Google Reader, Bloglines (now dropped), and <a href="http://tt-rss.org/redmine/projects/tt-rss/wiki">Tiny Tiny RSS</a>. So naturally, I looked up Tiny Tiny RSS to see if I could migrate there. Unfortunately, ttrss (Tiny Tiny RSS) is supposed to be hosted on a server and I didn&#8217;t want to host it on my computer just for rss feeds. So I decided to host it on <a href="https://www.heroku.com/">Heroku</a>.</p>
 
 <!-- more -->
@@ -291,9 +291,9 @@ heroku run './php/bin/php -c www/php.ini ./www/update.php -feeds'
   
   <entry>
     <title type="html"><![CDATA[Creating a Feed for Medium]]></title>
-    <link href="http://projectdelphai.github.com/blog/2013/02/15/creating-a-feed-for-medium/"/>
+    <link href="http://projectdelphai.github.com/creating-a-feed-for-medium/"/>
     <updated>2013-02-15T15:47:00-08:00</updated>
-    <id>http://projectdelphai.github.com/blog/2013/02/15/creating-a-feed-for-medium</id>
+    <id>http://projectdelphai.github.com/creating-a-feed-for-medium</id>
     <content type="html"><![CDATA[<p>More and more often, I&#8217;ve found myself reading posts from <a href="http://www.medium.com">Medium</a>. It is a relatively new site (still in closed beta for writers) that was created to be a &#8220;place for ideas&#8221;. While at first, it may seem a lot like sites such as reddit or Hacker News, it&#8217;s a lot different as well. It&#8217;s different in that it feels like a magazine. I enjoy reading the articles on Medium and it looks beautiful. From what I&#8217;ve heard, writing in Medium is great as well, to the point that one writer said that he wrote emails in it just because of how much he enjoyed the UI. It also deviates from just technology articles. While it has those, it also contains articles that just express ideas or thoughts that have occurred to people. No matter the content, however, the writing is how all posts should be written: easy-to-read, thought out, and creative.</p>
 
 <!-- more -->
@@ -330,9 +330,9 @@ heroku run './php/bin/php -c www/php.ini ./www/update.php -feeds'
   
   <entry>
     <title type="html"><![CDATA[Aliases]]></title>
-    <link href="http://projectdelphai.github.com/blog/2013/01/28/aliases/"/>
+    <link href="http://projectdelphai.github.com/aliases/"/>
     <updated>2013-01-28T23:05:00-08:00</updated>
-    <id>http://projectdelphai.github.com/blog/2013/01/28/aliases</id>
+    <id>http://projectdelphai.github.com/aliases</id>
     <content type="html"><![CDATA[<p>So right now I&#8217;m not sure whether to post whenever I think of an alias or bashrc function or to collect them all here. For now, I&#8217;ll just add to this post as I think of them. While not technically aliases, I&#8217;ll mostly include functions that I&#8217;ve placed in bashrc because to me, they serve the same purpose: they fulfill a certain requirement with less typing.</p>
 
 <!-- more -->
@@ -373,9 +373,9 @@ heroku run './php/bin/php -c www/php.ini ./www/update.php -feeds'
   
   <entry>
     <title type="html"><![CDATA[Test]]></title>
-    <link href="http://projectdelphai.github.com/blog/2013/01/26/test/"/>
+    <link href="http://projectdelphai.github.com/test/"/>
     <updated>2013-01-26T19:25:00-08:00</updated>
-    <id>http://projectdelphai.github.com/blog/2013/01/26/test</id>
+    <id>http://projectdelphai.github.com/test</id>
     <content type="html"><![CDATA[<p>This is just a test</p>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dui nunc, sollicitudin vitae vulputate sit amet, sagittis ac dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in urna augue, quis cursus dui. Nulla mattis tincidunt nulla, quis posuere tellus feugiat sit amet. Integer eu augue enim, ut tempor nunc. Donec aliquam leo quis libero suscipit viverra. Integer volutpat gravida luctus. In rutrum ligula et sapien blandit congue. Aliquam id arcu quam, eget sodales nibh.</p>
