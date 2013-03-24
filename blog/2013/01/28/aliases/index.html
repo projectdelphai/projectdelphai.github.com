@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Test - Reuben Castelino</title>
+	<title>Aliases - Reuben Castelino</title>
 	<meta name="author" content="Reuben Castelino">
 
 	
-	<meta name="description" content="This is just a test Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dui nunc, sollicitudin vitae vulputate sit amet, sagittis ac &hellip;">
+	<meta name="description" content="So right now I&#8217;m not sure whether to post whenever I think of an alias or bashrc function or to collect them all here. For now, I&#8217;ll just &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -78,24 +78,42 @@
 
 	
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">Test</h2>
-	<div class="entry-content"><p>This is just a test</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dui nunc, sollicitudin vitae vulputate sit amet, sagittis ac dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in urna augue, quis cursus dui. Nulla mattis tincidunt nulla, quis posuere tellus feugiat sit amet. Integer eu augue enim, ut tempor nunc. Donec aliquam leo quis libero suscipit viverra. Integer volutpat gravida luctus. In rutrum ligula et sapien blandit congue. Aliquam id arcu quam, eget sodales nibh.</p>
+	<h2 class="title">Aliases</h2>
+	<div class="entry-content"><p>So right now I&#8217;m not sure whether to post whenever I think of an alias or bashrc function or to collect them all here. For now, I&#8217;ll just add to this post as I think of them. While not technically aliases, I&#8217;ll mostly include functions that I&#8217;ve placed in bashrc because to me, they serve the same purpose: they fulfill a certain requirement with less typing.</p>
 
 <!-- more -->
 
 
-<p>Etiam gravida pellentesque lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend leo et nulla pretium nec semper libero vestibulum. Praesent blandit lacinia enim nec euismod. Nunc tortor felis, pharetra at faucibus eget, scelerisque sit amet ligula. Integer euismod tellus eget est posuere fermentum. Phasellus hendrerit dictum dolor, quis auctor metus consequat sit amet. Pellentesque at erat a diam tincidunt tincidunt. Sed risus ligula, hendrerit sit amet pellentesque et, venenatis eu mauris.</p>
+<p><strong>Backup File</strong></p>
 
-<iframe src='http://embed.verite.co/timeline/?source=0Ap8p1jFuRKLvdE1IQVhNRmVDUFU1Y0F0SUNyTnQxVFE&font=Bevan-PotanoSans&maptype=toner&lang=en&height=650' width='100%' height='650' frameborder='0'></iframe>
+<p>Renames file argument to <filename>.tmp to preserve a copy then renames file argument to <filename>.bk as backup. Finally it renames temp file to original filename as experiment file</p>
 
+<pre><code>function bk() {
+    cp $1 $1.tmp
+    mv $1 $1.bk
+    mv $1.tmp $1
+}
+</code></pre>
 
-<p>Praesent quis sapien vulputate turpis gravida consequat vel vel eros. Donec cursus, ipsum sed imperdiet ornare, lectus dolor varius orci, non imperdiet quam leo a diam. Pellentesque fringilla, magna non pretium tempor, eros mauris sollicitudin enim, eget pellentesque lectus velit eget magna. Quisque fringilla lorem ut enim convallis commodo. Nulla facilisi. Curabitur vestibulum dui quis massa fringilla tristique. Nulla ullamcorper tempor condimentum.</p>
+<p><strong>Deploy Octopress Site Changes</strong></p>
 
-<p>Nunc bibendum, risus eget imperdiet venenatis, justo nisl venenatis mi, a vulputate quam felis a dui. Cras magna eros, sodales ut laoreet vel, malesuada dapibus enim. Phasellus mollis, nisl vitae placerat fermentum, turpis tellus lacinia velit, eu viverra est risus pulvinar leo. Pellentesque commodo velit quis odio auctor eget dignissim libero ultricies. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras sodales, eros id aliquam pulvinar, felis turpis pellentesque ante, eu convallis metus nulla at nisl. Nullam vel ante in leo egestas sollicitudin ut eu mi. Mauris vitae urna nunc. Fusce rutrum bibendum venenatis. Mauris rutrum feugiat dolor, eu sodales sapien lacinia at.</p>
+<p>This one is used to deploy any changes to my site. After creating a post or changing the html/css, I just have to type in &#8220;deploy &#8216;&lt;git commit message&#8217;&#8221; and itwill publish the changes. It first generates the site and then deploys it. The next half adds all changed files, adds a commit message, and pushes to my github. The hardest part is just remembering to add that commit argument.</p>
 
-<p>Curabitur vitae felis ac elit gravida pellentesque sit amet ut turpis. Nunc consequat pulvinar nibh, a fringilla enim hendrerit vel. Vivamus et eleifend purus. Praesent suscipit pretium porttitor. Mauris feugiat massa eget diam lacinia facilisis. Donec at elit enim. Fusce vulputate metus in sapien consectetur pharetra. Vivamus sodales mattis metus, a pulvinar nibh pretium nec. Morbi nec dui id neque egestas vestibulum accumsan quis mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras non eros sit amet eros fermentum euismod. Duis pretium tortor id nunc volutpat tincidunt.</p>
+<pre><code>function deploy() {
+    rake generate;
+    rake deploy;
+    git add .;
+    git commit -m $1;
+    git push origin source;
+  }
+</code></pre>
+
+<p><strong>Aliases</strong></p>
+
+<p>View any usb drives that were plugged in. The later they appear, the later they were plugged in or registered.</p>
+
+<pre><code>alias vdev='dmesg | grep -o "sd[a-z]" | uniq | tail'
+</code></pre>
 </div>
 
 
@@ -112,7 +130,7 @@
   
 
 
-<time datetime="2013-01-26T19:25:00-08:00" pubdate data-updated="true">Jan 26<span>th</span>, 2013</time></div>
+<time datetime="2013-01-28T23:05:00-08:00" pubdate data-updated="true">Jan 28<span>th</span>, 2013</time></div>
 	<div class="tags">
 
 </div>
@@ -162,8 +180,8 @@ Fuelled by Octopress
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://projectdelphai.github.com/test/';
-        var disqus_url = 'http://projectdelphai.github.com/test/';
+        var disqus_identifier = 'http://projectdelphai.github.com/blog/2013/01/28/aliases/';
+        var disqus_url = 'http://projectdelphai.github.com/blog/2013/01/28/aliases/';
         var disqus_script = 'embed.js';
       
     (function () {
