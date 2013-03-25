@@ -22,12 +22,6 @@ Shell Script
 -----------
 Inspired by a [post](http://tt-rss.org/forum/viewtopic.php?f=16&t=1360)  on the tt-rss forum in which who_me created a script that allows easy installation of tt-rss on openshift, I decided to make it easier to create tt-rss servers on Heroku. [Hosted on github](https://github.com/projectdelphai/ttrss-on-heroku), the script is pretty stable (hopefully). It's just a bash script that runs through all the commands and should successfully create a server for you. I'll occasionally update it with the correct version number. It sets up the server and a self-updating feature which will be explained later on.
 
-New Versions
-----------
-Right now, there is no good way to update to the newest version. I'm thinkin of enabling the plugin so that one can turn it on in the preferences. I haven't tried to update to 1.7.5 yet, so I will post if something goes wrong. Until further notice, 1.7.4 will by default be uploaded.
-
-Now to more code and file related updates. . .
-
 Procfile and web-boot.sh (bug)
 -----------
 For some reason, the default httpd.conf for PHP files has a MaxClients of 1 meaning that only one person can connect to the server. Obviously, this can be a problem. So I had to change it using a custom worker. Workers are another name for the task that is assigned to a dyno. So I created a file called Procfile in the top directory and in it inserted this line
@@ -87,6 +81,45 @@ Now you need to assign your workers. Your first application will still only be u
 If everything worked out well (and I didn't forget anything), you should now recieve updates every 5 minutes. You can check this by running
 	
 	heroku logs --app \<appname\>-updater
+
+New Versions
+---------
+So updating to the next version basically sucks. I've updated the scrip to 1.7.5 so newcomers should have no problems. For oldies who worked with previous versions, we have it tougher. There are two ways to do it. The easier way is to export your feeds, delete your apps in heroku, and recreate it with the script, and then importing it. However, if you're sentimental like I am, and want to stick with your original setup, here's how to do it.
+
+First make sure that you have php and postgresql installed on your computer. The php installation must be able to work with the postgresql installation as well. In arch linux, its as easy as installing php-pgsql and uncommenting the necessary line in /etc/php/php.ini.
+
+Then in your local tt-rss installation, in your config.php add updater to your plugins section near the end of the file. After that, run 
+
+	/usr/bin/php update.php -update_self
+
+It should update your installation and create a folder up one directory of your old config. USING A SUDO COMMAND, transfer your git folder back into your tt-rss folder. This is important so that you don't lose your important .git setup. Then run 
+
+	sudo chown -R \<localuser\>:users .git
+
+so that you can edit the files like normal. Transfer your Procfile, web-boot.sh file and as well as any other files you might have edited. Then run git status to see all the changed files. Run 
+
+	git add .
+	git add -u
+
+and then 
+	
+	git status
+
+to see if there are any more changes to be committed. That should be all of them. Then commit them
+	
+	git commit -m 'updated to 1.7.5'
+
+and push it
+
+	git commit heroku master
+	git commit \<appname\>-updater
+
+I was definitely tired after trying to figure this out, and blasted through this walkthrough. If I missed anything, let me know and I'll fix it. This is such a precarious update that I don't want to try and automate it. If anyone can figure out how to successfully, I'll be happy to include it in the ttrss-on-heroku repo for others to use. 
+
+Ironically, even though I was sentimental and wanted to keep my old setup, I screwed this section up so often, that I had to recreate my ttrss server ~5 times before I figured it out. So much for keepsakes.
+
+All Finished
+------------
 
 Now, I have a tt-rss server that self-updates and provides rss feeds for me whenever I need them. Besides, this version updating (which is technically not even necessary), I can consider this project sufficiently completed. 
 
