@@ -4,7 +4,7 @@
   <title><![CDATA[Reuben Castelino]]></title>
   <link href="http://projectdelphai.github.com/atom.xml" rel="self"/>
   <link href="http://projectdelphai.github.com/"/>
-  <updated>2013-03-24T00:17:07-07:00</updated>
+  <updated>2013-03-24T20:25:44-07:00</updated>
   <id>http://projectdelphai.github.com/</id>
   <author>
     <name><![CDATA[Reuben Castelino]]></name>
@@ -34,12 +34,6 @@
 <h2>Shell Script</h2>
 
 <p>Inspired by a <a href="http://tt-rss.org/forum/viewtopic.php?f=16&amp;t=1360">post</a>  on the tt-rss forum in which who_me created a script that allows easy installation of tt-rss on openshift, I decided to make it easier to create tt-rss servers on Heroku. <a href="https://github.com/projectdelphai/ttrss-on-heroku">Hosted on github</a>, the script is pretty stable (hopefully). It&#8217;s just a bash script that runs through all the commands and should successfully create a server for you. I&#8217;ll occasionally update it with the correct version number. It sets up the server and a self-updating feature which will be explained later on.</p>
-
-<h2>New Versions</h2>
-
-<p>Right now, there is no good way to update to the newest version. I&#8217;m thinkin of enabling the plugin so that one can turn it on in the preferences. I haven&#8217;t tried to update to 1.7.5 yet, so I will post if something goes wrong. Until further notice, 1.7.4 will by default be uploaded.</p>
-
-<p>Now to more code and file related updates&#8230;</p>
 
 <h2>Procfile and web-boot.sh (bug)</h2>
 
@@ -110,6 +104,50 @@ git push \&lt;appname\&gt;-updater master
 
 <pre><code>heroku logs --app \&lt;appname\&gt;-updater
 </code></pre>
+
+<h2>New Versions</h2>
+
+<p>So updating to the next version basically sucks. I&#8217;ve updated the scrip to 1.7.5 so newcomers should have no problems. For oldies who worked with previous versions, we have it tougher. There are two ways to do it. The easier way is to export your feeds, delete your apps in heroku, and recreate it with the script, and then importing it. However, if you&#8217;re sentimental like I am, and want to stick with your original setup, here&#8217;s how to do it.</p>
+
+<p>First make sure that you have php and postgresql installed on your computer. The php installation must be able to work with the postgresql installation as well. In arch linux, its as easy as installing php-pgsql and uncommenting the necessary line in /etc/php/php.ini.</p>
+
+<p>Then in your local tt-rss installation, in your config.php add updater to your plugins section near the end of the file. After that, run</p>
+
+<pre><code>/usr/bin/php update.php -update_self
+</code></pre>
+
+<p>It should update your installation and create a folder up one directory of your old config. USING A SUDO COMMAND, transfer your git folder back into your tt-rss folder. This is important so that you don&#8217;t lose your important .git setup. Then run</p>
+
+<pre><code>sudo chown -R \&lt;localuser\&gt;:users .git
+</code></pre>
+
+<p>so that you can edit the files like normal. Transfer your Procfile, web-boot.sh file and as well as any other files you might have edited. Then run git status to see all the changed files. Run</p>
+
+<pre><code>git add .
+git add -u
+</code></pre>
+
+<p>and then</p>
+
+<pre><code>git status
+</code></pre>
+
+<p>to see if there are any more changes to be committed. That should be all of them. Then commit them</p>
+
+<pre><code>git commit -m 'updated to 1.7.5'
+</code></pre>
+
+<p>and push it</p>
+
+<pre><code>git commit heroku master
+git commit \&lt;appname\&gt;-updater
+</code></pre>
+
+<p>I was definitely tired after trying to figure this out, and blasted through this walkthrough. If I missed anything, let me know and I&#8217;ll fix it. This is such a precarious update that I don&#8217;t want to try and automate it. If anyone can figure out how to successfully, I&#8217;ll be happy to include it in the ttrss-on-heroku repo for others to use.</p>
+
+<p>Ironically, even though I was sentimental and wanted to keep my old setup, I screwed this section up so often, that I had to recreate my ttrss server ~5 times before I figured it out. So much for keepsakes.</p>
+
+<h2>All Finished</h2>
 
 <p>Now, I have a tt-rss server that self-updates and provides rss feeds for me whenever I need them. Besides, this version updating (which is technically not even necessary), I can consider this project sufficiently completed.</p>
 
