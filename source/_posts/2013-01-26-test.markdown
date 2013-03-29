@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-This is just a test
+This is just a test{% fn_ref 1 %}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dui nunc, sollicitudin vitae vulputate sit amet, sagittis ac dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in urna augue, quis cursus dui. Nulla mattis tincidunt nulla, quis posuere tellus feugiat sit amet. Integer eu augue enim, ut tempor nunc. Donec aliquam leo quis libero suscipit viverra. Integer volutpat gravida luctus. In rutrum ligula et sapien blandit congue. Aliquam id arcu quam, eget sodales nibh.
 
@@ -21,3 +21,7 @@ Praesent quis sapien vulputate turpis gravida consequat vel vel eros. Donec curs
 Nunc bibendum, risus eget imperdiet venenatis, justo nisl venenatis mi, a vulputate quam felis a dui. Cras magna eros, sodales ut laoreet vel, malesuada dapibus enim. Phasellus mollis, nisl vitae placerat fermentum, turpis tellus lacinia velit, eu viverra est risus pulvinar leo. Pellentesque commodo velit quis odio auctor eget dignissim libero ultricies. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras sodales, eros id aliquam pulvinar, felis turpis pellentesque ante, eu convallis metus nulla at nisl. Nullam vel ante in leo egestas sollicitudin ut eu mi. Mauris vitae urna nunc. Fusce rutrum bibendum venenatis. Mauris rutrum feugiat dolor, eu sodales sapien lacinia at.
 
 Curabitur vitae felis ac elit gravida pellentesque sit amet ut turpis. Nunc consequat pulvinar nibh, a fringilla enim hendrerit vel. Vivamus et eleifend purus. Praesent suscipit pretium porttitor. Mauris feugiat massa eget diam lacinia facilisis. Donec at elit enim. Fusce vulputate metus in sapien consectetur pharetra. Vivamus sodales mattis metus, a pulvinar nibh pretium nec. Morbi nec dui id neque egestas vestibulum accumsan quis mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras non eros sit amet eros fermentum euismod. Duis pretium tortor id nunc volutpat tincidunt. 
+
+{% footnotes %}
+  {% fn %} So that I can test some experiments without using actual articles.
+{% endfootnotes %}
