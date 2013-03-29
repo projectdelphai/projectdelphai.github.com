@@ -10,7 +10,10 @@ As many probably know, Google Reader is slated to be [shut down](http://googlere
 
 <!-- more -->
 
-There is now a [part 2]( ).
+Part Two
+---------
+There is now a [part 2](http://projectdelphai.github.com/blog/2013/03/23/tt-rss-on-heroku-part-2/).
+
 Update
 ---------
 I did create recently create a shell script that can be found [here](https://github.com/projectdelphai/ttrss-on-heroku) which will make it a lot easier for a person to quickly set up a ttrs-on-heroku server. If you're just here to get a server, use that. If you want to learn more about the process and the background information, read ahead. I would at least skim ahead so that you have a basic understanding of what's happening
