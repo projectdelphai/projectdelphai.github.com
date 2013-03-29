@@ -4,7 +4,7 @@
   <title><![CDATA[Reuben Castelino]]></title>
   <link href="http://projectdelphai.github.com/atom.xml" rel="self"/>
   <link href="http://projectdelphai.github.com/"/>
-  <updated>2013-03-27T15:41:36-07:00</updated>
+  <updated>2013-03-29T13:11:49-07:00</updated>
   <id>http://projectdelphai.github.com/</id>
   <author>
     <name><![CDATA[Reuben Castelino]]></name>
@@ -54,7 +54,7 @@ sh boot.sh
 
 <h2>Self-Updating</h2>
 
-<p>This definitely was my greatest accomplishment so far. The problem here is that tt-rss doesn&#8217;t have a real-time updating solution like google reader did. This is basically because constantly polling for updates would take up a lot of resources that a self-hoster doesn&#8217;t want to do. And so tt-rss has a update.php script that can be run to update all feeds. tt-rss doesn&#8217;t have a built in update-all button, because if someone has a lot of feeds, it would take too long. For example, I have a little over 50 feeds and just importing them and updating them initially all took ~10 mins. Right now, after syncing it all, my feeds update at about a rate of 1/2 a second per article. This can be a problem to update over http because most servers (like Heroku) have a 30 second timeout. So while Jan&#8217;s post (mentioned above), does mention a url to update, Heroku times out and crashes the application. And when it crashes, it stays crashed for at least 5-10 mins-which is unacceptable. Previously, I had a cron job run every 5 mins to update the feeds, but if my computer was off, nothing would update and if I&#8217;m gone from home, I have no way to update everything.</p>
+<p>The problem here is that tt-rss doesn&#8217;t have a real-time updating solution like google reader did. This is basically because constantly polling for updates would take up a lot of resources that a self-hoster doesn&#8217;t want to do. And so tt-rss has a update.php script that can be run to update all feeds. tt-rss doesn&#8217;t have a built in update-all button, because if someone has a lot of feeds, it would take too long. For example, I have a little over 50 feeds and just importing them and updating them initially all took ~10 mins. Right now, after syncing it all, my feeds update at about a rate of 1/2 a second per article. This can be a problem to update over http because most servers (like Heroku) have a 30 second timeout. So while Jan&#8217;s post (mentioned above), does mention a url to update, Heroku times out and crashes the application. And when it crashes, it stays crashed for at least 5-10 mins-which is unacceptable. Previously, I had a cron job run every 5 mins to update the feeds, but if my computer was off, nothing would update and if I&#8217;m gone from home, I have no way to update everything.</p>
 
 <p>But I couldn&#8217;t get Heroku to update the tt-rss server either. Heroku only allows one dyno per application on the free tier. If I had a worker dyno (background jobs) to my web dyno (application job), it would bump up the price to $34 per month which was way to much. And so I threw every idea I had at it, but nothing would work. The one idea I had that seemed the most profitable was to create another Heroku application that could somehow interface with my tt-rss server and remotely update it, but I had no idea how to do this.</p>
 
@@ -165,7 +165,9 @@ git commit \&lt;appname\&gt;-updater
 <!-- more -->
 
 
-<p>There is now a <a href="">part 2</a>.</p>
+<h2>Part Two</h2>
+
+<p>There is now a <a href="http://projectdelphai.github.com/blog/2013/03/23/tt-rss-on-heroku-part-2/">part 2</a>.</p>
 
 <h2>Update</h2>
 
