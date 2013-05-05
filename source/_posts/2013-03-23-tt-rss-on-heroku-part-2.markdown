@@ -51,36 +51,36 @@ This adds a worker dyno which will run the update script every 5 mins. But someo
 
 In the same folder as your application, create a new application like this
 
-	heroku apps:create \<appname\>-updater
+	heroku apps:create appname-updater
 
-Now you need to connect your new application to your old one. Forewarning, because you now have two applications created in the same folder, you always need to specify which app you're talking about with "--app \<appname\>. Grab the database url for the tt-rss server with
+Now you need to connect your new application to your old one. Forewarning, because you now have two applications created in the same folder, you always need to specify which app you're talking about with "--app appname. Grab the database url for the tt-rss server with
 
-	heroku config --app \<appname\>
+	heroku config --app appname
 
 Copy and paste the database url into your new updater application as well as adding the proper environment variables.
 
-	heroku config:add DATABASE_URL=\<databaseurl\> --app \<appname\>-updater
-	heroku config:add LD_LIBRARY_PATH=/app/php/ext:/app/apache/lib --app \<appname\>-updater
+	heroku config:add DATABASE_URL=databaseurl --app appname-updater
+	heroku config:add LD_LIBRARY_PATH=/app/php/ext:/app/apache/lib --app appname-updater
 
 Now add the application repository to your git config with
 
-	git remote add \<appname\>-updater git@heroku.com:\<appname\>-updater.git
+	git remote add appname-updater git@heroku.com:appname-updater.git
 
 Now push your data to your second application with
 
 	git add .
 	git commit -m "initial commit"
-	git push \<appname\>-updater master
+	git push appname-updater master
 
-You might also want to push all your data to your ttrss server just in case with the same command as above just replacing the \<appname\>-updater with heroku.
+You might also want to push all your data to your ttrss server just in case with the same command as above just replacing the appname-updater with heroku.
 
 Now you need to assign your workers. Your first application will still only be using the web dyno as it was originally. However, Heroku has this ability where you can have one worker dyno instead of one web dyno and it is still totally free. So assign a worker dyno to your heroku config with
 
-	heroku ps:scale worker=1 --app \<appname\>-updater
+	heroku ps:scale worker=1 --app appname-updater
 
 If everything worked out well (and I didn't forget anything), you should now recieve updates every 5 minutes. You can check this by running
 	
-	heroku logs --app \<appname\>-updater
+	heroku logs --app appname-updater
 
 New Versions
 ---------
@@ -94,7 +94,7 @@ Then in your local tt-rss installation, in your config.php add updater to your p
 
 It should update your installation and create a folder up one directory of your old config. USING A SUDO COMMAND, transfer your git folder back into your tt-rss folder. This is important so that you don't lose your important .git setup. Then run 
 
-	sudo chown -R \<localuser\>:users .git
+	sudo chown -R localuser:users .git
 
 so that you can edit the files like normal. Transfer your Procfile, web-boot.sh file and as well as any other files you might have edited. Then run git status to see all the changed files. Run 
 
@@ -112,7 +112,7 @@ to see if there are any more changes to be committed. That should be all of them
 and push it
 
 	git commit heroku master
-	git commit \<appname\>-updater
+	git commit appname-updater
 
 I was definitely tired after trying to figure this out, and blasted through this walkthrough. If I missed anything, let me know and I'll fix it. This is such a precarious update that I don't want to try and automate it. If anyone can figure out how to successfully, I'll be happy to include it in the ttrss-on-heroku repo for others to use. 
 
