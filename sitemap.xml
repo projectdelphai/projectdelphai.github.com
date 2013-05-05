@@ -16,11 +16,15 @@
         <loc>
             http://projectdelphai.github.com/blog/2013/03/15/replacing-google-reader-with-tt-rss-on-heroku/
         </loc>
-        <lastmod>2013-03-29T19:05:20-07:00</lastmod>
+        <lastmod>2013-05-04T19:07:58-07:00</lastmod>
     </url>
     <url>
         <loc>http://projectdelphai.github.com/blog/2013/03/23/tt-rss-on-heroku-part-2/</loc>
-        <lastmod>2013-03-29T19:05:20-07:00</lastmod>
+        <lastmod>2013-05-04T19:08:19-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://projectdelphai.github.com/blog/2013/04/02/reflections/</loc>
+        <lastmod>2013-04-03T10:52:17-07:00</lastmod>
     </url>
     <url>
         <loc>http://projectdelphai.github.com/blog/about.html</loc>
@@ -28,7 +32,7 @@
     </url>
     <url>
         <loc>http://projectdelphai.github.com/blog/archives/</loc>
-        <lastmod>2013-03-29T19:05:20-07:00</lastmod>
+        <lastmod>2013-05-04T19:08:19-07:00</lastmod>
     </url>
     <url>
         <loc>http://projectdelphai.github.com/robots.txt</loc>
@@ -36,6 +40,6 @@
     </url>
     <url>
         <loc>http://projectdelphai.github.com/</loc>
-        <lastmod>2013-03-29T19:05:20-07:00</lastmod>
+        <lastmod>2013-05-04T19:08:19-07:00</lastmod>
     </url>
 </urlset>

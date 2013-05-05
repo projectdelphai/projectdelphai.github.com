@@ -17,7 +17,8 @@
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script src="/javascripts/footnote.js" type="text/javascript"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/javascripts/footnote.js" type="text/javascript"></script>
 
 </head>
 
@@ -129,42 +130,42 @@ sh boot.sh
 
 <p>In the same folder as your application, create a new application like this</p>
 
-<pre><code>heroku apps:create \&lt;appname\&gt;-updater
+<pre><code>heroku apps:create appname-updater
 </code></pre>
 
-<p>Now you need to connect your new application to your old one. Forewarning, because you now have two applications created in the same folder, you always need to specify which app you&#8217;re talking about with &#8220;&#8211;app &lt;appname>. Grab the database url for the tt-rss server with</p>
+<p>Now you need to connect your new application to your old one. Forewarning, because you now have two applications created in the same folder, you always need to specify which app you&#8217;re talking about with &#8220;&#8211;app appname. Grab the database url for the tt-rss server with</p>
 
-<pre><code>heroku config --app \&lt;appname\&gt;
+<pre><code>heroku config --app appname
 </code></pre>
 
 <p>Copy and paste the database url into your new updater application as well as adding the proper environment variables.</p>
 
-<pre><code>heroku config:add DATABASE_URL=\&lt;databaseurl\&gt; --app \&lt;appname\&gt;-updater
-heroku config:add LD_LIBRARY_PATH=/app/php/ext:/app/apache/lib --app \&lt;appname\&gt;-updater
+<pre><code>heroku config:add DATABASE_URL=databaseurl --app appname-updater
+heroku config:add LD_LIBRARY_PATH=/app/php/ext:/app/apache/lib --app appname-updater
 </code></pre>
 
 <p>Now add the application repository to your git config with</p>
 
-<pre><code>git remote add \&lt;appname\&gt;-updater git@heroku.com:\&lt;appname\&gt;-updater.git
+<pre><code>git remote add appname-updater git@heroku.com:appname-updater.git
 </code></pre>
 
 <p>Now push your data to your second application with</p>
 
 <pre><code>git add .
 git commit -m "initial commit"
-git push \&lt;appname\&gt;-updater master
+git push appname-updater master
 </code></pre>
 
-<p>You might also want to push all your data to your ttrss server just in case with the same command as above just replacing the &lt;appname>-updater with heroku.</p>
+<p>You might also want to push all your data to your ttrss server just in case with the same command as above just replacing the appname-updater with heroku.</p>
 
 <p>Now you need to assign your workers. Your first application will still only be using the web dyno as it was originally. However, Heroku has this ability where you can have one worker dyno instead of one web dyno and it is still totally free. So assign a worker dyno to your heroku config with</p>
 
-<pre><code>heroku ps:scale worker=1 --app \&lt;appname\&gt;-updater
+<pre><code>heroku ps:scale worker=1 --app appname-updater
 </code></pre>
 
 <p>If everything worked out well (and I didn&#8217;t forget anything), you should now recieve updates every 5 minutes. You can check this by running</p>
 
-<pre><code>heroku logs --app \&lt;appname\&gt;-updater
+<pre><code>heroku logs --app appname-updater
 </code></pre>
 
 <h2>New Versions</h2>
@@ -180,7 +181,7 @@ git push \&lt;appname\&gt;-updater master
 
 <p>It should update your installation and create a folder up one directory of your old config. USING A SUDO COMMAND, transfer your git folder back into your tt-rss folder. This is important so that you don&#8217;t lose your important .git setup. Then run</p>
 
-<pre><code>sudo chown -R \&lt;localuser\&gt;:users .git
+<pre><code>sudo chown -R localuser:users .git
 </code></pre>
 
 <p>so that you can edit the files like normal. Transfer your Procfile, web-boot.sh file and as well as any other files you might have edited. Then run git status to see all the changed files. Run</p>
@@ -202,7 +203,7 @@ git add -u
 <p>and push it</p>
 
 <pre><code>git commit heroku master
-git commit \&lt;appname\&gt;-updater
+git commit appname-updater
 </code></pre>
 
 <p>I was definitely tired after trying to figure this out, and blasted through this walkthrough. If I missed anything, let me know and I&#8217;ll fix it. This is such a precarious update that I don&#8217;t want to try and automate it. If anyone can figure out how to successfully, I&#8217;ll be happy to include it in the ttrss-on-heroku repo for others to use.</p>
